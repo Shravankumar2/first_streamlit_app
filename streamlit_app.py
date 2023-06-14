@@ -77,7 +77,7 @@ def insert_row_snowflake(new_fruit):
       return "Thanks for adding Jackfruit " +new_fruit
 
 add_my_fruit =  streamlit.text_input('What fruit would you like to add?')  
-if streamlit.button('add a fruit tolist'): 
+if streamlit.button('Add a fruit to list'): 
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   back_from_function= insert_row_snowflake(add_my_fruit)
   streamlit.text(back_from_function)
@@ -112,6 +112,6 @@ streamlit.dataframe(my_data_rows)
 #add a second text box
 #fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 add_my_fruit = streamlit.text_input('What fruit would you like to add?','Jackfruit')
-streamlit.write('Thanks for adding Jackfruit ', add_my_fruit)
+streamlit.write('Thanks for adding ', add_my_fruit)
 
 my_cur.execute("insert into fruit_load_list values('from streamlit')")
